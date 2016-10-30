@@ -1,5 +1,4 @@
 library(data.table)
-library(bit64)
 library(dplyr)
 library(tidyr)
 library(scales)
