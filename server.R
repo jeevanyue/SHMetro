@@ -63,7 +63,7 @@ shmetro_heatmap <- rbind(shmetro_in_heatmap,shmetro_out_heatmap)
 shmetro_heatmap[shmetro_heatmap$HM30=="00:00",]$HM30 <- "24:00"
 
 ## 乘站数量和人次
-paths_persion <- fread("data/paths_persion.csv", header = T, sep=",", encoding = "UTF-8")
+paths_person <- fread("data/paths_person.csv", header = T, sep=",", encoding = "UTF-8")
 
 invisible(gc())
 
@@ -303,8 +303,8 @@ shinyServer(function(input, output, session) {
   })
   
   ####乘坐数量####
-  output$paths_persion_plot <- renderPlotly({
-    gg_paths_persion <- ggplot(paths_persion,aes(paths,value)) +
+  output$paths_person_plot <- renderPlotly({
+    gg_paths_person <- ggplot(paths_person,aes(paths,value)) +
       geom_bar(stat = "identity",width=0.8) +
       theme_grey(base_size = 10) + 
       labs(list(title = "", x = "乘坐站数", y = "乘坐人次")) + 
@@ -314,7 +314,7 @@ shinyServer(function(input, output, session) {
             panel.grid.minor.x = element_blank(),
             panel.grid.minor.y = element_blank(),
             text = element_text(family = 'STKaiti'))
-    ggplotly(gg_paths_persion) %>% 
+    ggplotly(gg_paths_person) %>% 
       layout(autosize = F, width = 800, height = 550, margin = m)
   })
   

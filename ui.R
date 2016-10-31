@@ -85,7 +85,7 @@ shinyUI(navbarPage("SHMetro",
                    tabPanel("乘站数量",
                             div(class="outer",
                                 tags$style(type = "text/css", ".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
-                                plotlyOutput("paths_persion_plot", width = "100%",height="100%")
+                                plotlyOutput("paths_person_plot", width = "100%",height="100%")
                             )
                    ),
                    
